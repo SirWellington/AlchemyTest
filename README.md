@@ -7,5 +7,5 @@ Alchemy Test
 
 # Purpose
 
-We write so many tests in our day; it should be easier.
+We write so many tests in our day; it should be easier.   
 Part of the [Alchemy Collection](https://github.com/SirWellington/alchemy), **Alchemy Test** is a Unit Test Library that makes it easier to test your code by providing syntactic sugar for unit-testing and mocking.
