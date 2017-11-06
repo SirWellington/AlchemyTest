@@ -14,7 +14,7 @@ class AlchemyTest
     
 }
 
-public func failTest(message: String = "Assertion failed", _ functionName: String = #function)
+public func failTest(_ message: String = "Assertion failed", _ functionName: String = #function)
 {
     XCTFail(functionName + " | " + message)
 }
@@ -47,7 +47,7 @@ public func assertNotNil(variable: Any?)
 {
     if variable == nil
     {
-        failTest(message: "Expected non-nil value")
+        failTest("Expected non-nil value")
     }
 }
 
@@ -55,7 +55,7 @@ public func assertNil(variable: Any?)
 {
     if let variable = variable
     {
-        failTest(message: "Expected nil value, but [\(variable)]")
+        failTest("Expected nil value, but [\(variable)]")
     }
 }
 
@@ -68,13 +68,13 @@ public func assertEquals<T: Equatable>(_ first: T?, _ second: T?)
     
     guard let _first = first, let _second = second else
     {
-        failTest(message: "Not equal: [\(first)] & [\(second)]")
+        failTest("Not equal: [\(first)] & [\(second)]")
         return
     }
     
     if _first != _second
     {
-        failTest(message: "Not equal: [\(_first)] & [\(_second)]")
+        failTest("Not equal: [\(_first)] & [\(_second)]")
     }
 }
 
@@ -87,7 +87,7 @@ public func assertEquals<T: Equatable>(_ first: [T], _ second: [T])
     
     guard first.count == second.count else
     {
-        failTest(message: "Arrays have different lengths")
+        failTest("Arrays have different lengths")
         return
     }
     
@@ -97,7 +97,7 @@ public func assertEquals<T: Equatable>(_ first: [T], _ second: [T])
         
         guard secondValue == firstValue else
         {
-            failTest(message: "Arrays are different [@\(index)] | \(secondValue) != \(firstValue)")
+            failTest("Arrays are different [@\(index)] | \(secondValue) != \(firstValue)")
             return
         }
     }
@@ -110,7 +110,7 @@ public func assertNotEquals<T: Equatable>(_ first: T?, _ second: T?)
     {
         if first == second
         {
-            failTest(message: "Expected different values, but [\(first) & \(second)] are the same.")
+            failTest("Expected different values, but [\(first) & \(second)] are the same.")
         }
         
         return
@@ -118,7 +118,7 @@ public func assertNotEquals<T: Equatable>(_ first: T?, _ second: T?)
     
     if _first == _second
     {
-        failTest(message: "Expected different values, but [\(_first) & \(_second)]")
+        failTest("Expected different values, but [\(_first) & \(_second)]")
     }
 }
 
@@ -127,7 +127,7 @@ public func assertNotEmpty(_ string: String)
 {
     if string.isEmpty
     {
-        failTest(message: "String is empty")
+        failTest("String is empty")
     }
 }
 
@@ -135,6 +135,6 @@ public func assertNotEmpty(_ collection: AnyCollection<Any>)
 {
     if collection.isEmpty
     {
-        failTest(message: "Collection is empty")
+        failTest("Collection is empty")
     }
 }
