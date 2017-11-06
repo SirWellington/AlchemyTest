@@ -59,7 +59,7 @@ public func assertNil(variable: Any?)
     }
 }
 
-public func assertEquals<T: Equatable>(first: T?, second: T?)
+public func assertEquals<T: Equatable>(_ first: T?, _ second: T?)
 {
     if first == nil && second == nil
     {
@@ -75,5 +75,30 @@ public func assertEquals<T: Equatable>(first: T?, second: T?)
     if _first != _second
     {
         fail(message: "Not equal: [\(_first)] & [\(_second)]")
+    }
+}
+
+public func assertEquals<T: Equatable>(_ first: [T], _ second: [T])
+{
+    if first.isEmpty && second.isEmpty
+    {
+        return
+    }
+    
+    guard first.count == second.count else
+    {
+        fail(message: "Arrays have different lengths")
+        return
+    }
+    
+    for (index, firstValue) in first.enumerated()
+    {
+        let secondValue = second[index]
+        
+        guard secondValue == firstValue else
+        {
+            fail(message: "Arrays are different [@\(index)] | \(secondValue) != \(firstValue)")
+            return
+        }
     }
 }
