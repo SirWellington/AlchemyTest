@@ -6,7 +6,9 @@
 //  Copyright © 2017 Wellington Moreno. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
 
 //! Project version number for AlchemyTest.
 FOUNDATION_EXPORT double AlchemyTestVersionNumber;

@@ -14,9 +14,9 @@ class AlchemyTest
     
 }
 
-internal func fail(message: String = "Assertion failed")
+internal func fail(message: String = "Assertion failed", _ functionName: String = #function)
 {
-    XCTFail(message)
+    XCTFail(functionName + " | " + message)
 }
 
 public func assertThat(_ expression: Bool)
@@ -100,5 +100,41 @@ public func assertEquals<T: Equatable>(_ first: [T], _ second: [T])
             fail(message: "Arrays are different [@\(index)] | \(secondValue) != \(firstValue)")
             return
         }
+    }
+}
+
+public func assertNotEquals<T: Equatable>(_ first: T?, _ second: T?)
+{
+    
+    guard let _first = first, let _second = second else
+    {
+        if first == second
+        {
+            fail(message: "Expected different values, but [\(first) & \(second)] are the same.")
+        }
+        
+        return
+    }
+    
+    if _first == _second
+    {
+        fail(message: "Expected different values, but [\(_first) & \(_second)]")
+    }
+}
+
+
+public func assertNotEmpty(_ string: String)
+{
+    if string.isEmpty
+    {
+        fail(message: "String is empty")
+    }
+}
+
+public func assertNotEmpty(_ collection: AnyCollection<Any>)
+{
+    if collection.isEmpty
+    {
+        fail(message: "Collection is empty")
     }
 }
