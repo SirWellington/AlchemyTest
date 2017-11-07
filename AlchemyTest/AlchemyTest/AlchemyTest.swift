@@ -43,7 +43,7 @@ public func assertTrue(_ expression: Bool)
     }
 }
 
-public func assertNotNil(variable: Any?)
+public func assertNotNil(_ variable: Any?)
 {
     if variable == nil
     {
@@ -51,7 +51,7 @@ public func assertNotNil(variable: Any?)
     }
 }
 
-public func assertNil(variable: Any?)
+public func assertNil(_ variable: Any?)
 {
     if let variable = variable
     {
@@ -136,5 +136,29 @@ public func assertNotEmpty(_ collection: AnyCollection<Any>)
     if collection.isEmpty
     {
         failTest("Collection is empty")
+    }
+}
+
+public func assertNotEmpty(_ array: [Any])
+{
+    if array.isEmpty
+    {
+        failTest("Array is empty")
+    }
+}
+
+public func assertEmpty(_ collection: AnyCollection<Any>)
+{
+    if !collection.isEmpty
+    {
+        failTest("Collection is not empty. Has \(collection.count) elements")
+    }
+}
+
+public func assertEmpty(_ array: [Any])
+{
+    if !array.isEmpty
+    {
+        failTest("Array is not empty. Has \(array.count) elements")
     }
 }
