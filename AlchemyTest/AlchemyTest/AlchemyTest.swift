@@ -103,6 +103,24 @@ public func assertEquals<T: Equatable>(_ first: [T], _ second: [T])
     }
 }
 
+public func assertEquals(_ first: Double, _ second: Double, withMarginOfError marginOfError: Double)
+{
+    let left = first - marginOfError
+    let right = first + marginOfError
+    
+    guard left <= second else
+    {
+        failTest("\(first) != \(second) within ε (\(marginOfError))")
+        return
+    }
+    
+    guard second <= right else
+    {
+        failTest("\((first)) != \(second) within ε (\(marginOfError))")
+        return
+    }
+}
+
 public func assertNotEquals<T: Equatable>(_ first: T?, _ second: T?)
 {
     

@@ -6,31 +6,28 @@
 //  Copyright © 2017 Wellington Moreno. All rights reserved.
 //
 
-import XCTest
 @testable import AlchemyTest
+import XCTest
 
-class AlchemyTestTests: XCTestCase {
+class AlchemyTestTests: XCTestCase
+{
     
-    override func setUp() {
+    override func setUp()
+    {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown()
+    {
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+   
+    func testAssertEqualsWithMarginOfError()
+    {
+        assertEquals(0.5, 0.6, withMarginOfError: 0.15)
+        assertEquals(0.51, 0.65, withMarginOfError: 0.2)
+        assertEquals(12.3, 12.35, withMarginOfError: 0.1)
+        assertEquals(543.21, 541.01, withMarginOfError: 4.0)
     }
     
 }
