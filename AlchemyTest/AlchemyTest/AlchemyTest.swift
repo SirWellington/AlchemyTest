@@ -14,9 +14,9 @@ class AlchemyTest
     
 }
 
-public func failTest(_ message: String = "Assertion failed", _ functionName: String = #function)
+public func failTest(_ message: String = "Assertion failed", _ functionName: String = #function, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
-    XCTFail(functionName + " | " + message)
+    XCTFail(functionName + " | " + message, file: filename, line: lineNumber)
 }
 
 public func assertThat(_ expression: Bool)
