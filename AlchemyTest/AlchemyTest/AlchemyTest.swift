@@ -19,7 +19,7 @@ public func failTest(_ message: String = "Assertion failed", _ functionName: Str
     XCTFail(functionName + " | " + message, file: filename, line: lineNumber)
 }
 
-public func assertThat(_ expression: Bool)
+public func assertThat(_ expression: Bool, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if !expression
     {
@@ -27,7 +27,7 @@ public func assertThat(_ expression: Bool)
     }
 }
 
-public func assertFalse(_ expression: Bool)
+public func assertFalse(_ expression: Bool, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if expression
     {
@@ -35,7 +35,7 @@ public func assertFalse(_ expression: Bool)
     }
 }
 
-public func assertTrue(_ expression: Bool)
+public func assertTrue(_ expression: Bool, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if !expression
     {
@@ -43,7 +43,7 @@ public func assertTrue(_ expression: Bool)
     }
 }
 
-public func assertNotNil(_ variable: Any?)
+public func assertNotNil(_ variable: Any?, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if variable == nil
     {
@@ -51,7 +51,7 @@ public func assertNotNil(_ variable: Any?)
     }
 }
 
-public func assertNil(_ variable: Any?)
+public func assertNil(_ variable: Any?, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if let variable = variable
     {
@@ -59,7 +59,7 @@ public func assertNil(_ variable: Any?)
     }
 }
 
-public func assertEquals<T: Equatable>(_ first: T?, _ second: T?)
+public func assertEquals<T: Equatable>(_ first: T?, _ second: T?, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if first == nil && second == nil
     {
@@ -78,7 +78,7 @@ public func assertEquals<T: Equatable>(_ first: T?, _ second: T?)
     }
 }
 
-public func assertEquals<T: Equatable>(_ first: [T], _ second: [T])
+public func assertEquals<T: Equatable>(_ first: [T], _ second: [T], _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if first.isEmpty && second.isEmpty
     {
@@ -103,7 +103,7 @@ public func assertEquals<T: Equatable>(_ first: [T], _ second: [T])
     }
 }
 
-public func assertEquals(_ first: Double, _ second: Double, withMarginOfError marginOfError: Double)
+public func assertEquals(_ first: Double, _ second: Double, withMarginOfError marginOfError: Double, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     let left = first - marginOfError
     let right = first + marginOfError
@@ -121,7 +121,7 @@ public func assertEquals(_ first: Double, _ second: Double, withMarginOfError ma
     }
 }
 
-public func assertNotEquals<T: Equatable>(_ first: T?, _ second: T?)
+public func assertNotEquals<T: Equatable>(_ first: T?, _ second: T?, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     
     guard let _first = first, let _second = second else
@@ -141,7 +141,7 @@ public func assertNotEquals<T: Equatable>(_ first: T?, _ second: T?)
 }
 
 
-public func assertNotEmpty(_ string: String)
+public func assertNotEmpty(_ string: String, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if string.isEmpty
     {
@@ -149,7 +149,7 @@ public func assertNotEmpty(_ string: String)
     }
 }
 
-public func assertNotEmpty(_ collection: AnyCollection<Any>)
+public func assertNotEmpty(_ collection: AnyCollection<Any>, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if collection.isEmpty
     {
@@ -157,7 +157,7 @@ public func assertNotEmpty(_ collection: AnyCollection<Any>)
     }
 }
 
-public func assertNotEmpty(_ array: [Any])
+public func assertNotEmpty(_ array: [Any], _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if array.isEmpty
     {
@@ -165,7 +165,7 @@ public func assertNotEmpty(_ array: [Any])
     }
 }
 
-public func assertEmpty(_ collection: AnyCollection<Any>)
+public func assertEmpty(_ collection: AnyCollection<Any>, _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if !collection.isEmpty
     {
@@ -173,7 +173,7 @@ public func assertEmpty(_ collection: AnyCollection<Any>)
     }
 }
 
-public func assertEmpty(_ array: [Any])
+public func assertEmpty(_ array: [Any], _ filename: StaticString = #file, _ lineNumber: UInt = #line)
 {
     if !array.isEmpty
     {
