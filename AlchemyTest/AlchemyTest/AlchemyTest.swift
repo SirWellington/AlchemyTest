@@ -141,9 +141,9 @@ public func assertNotEquals<T: Equatable>(_ first: T?, _ second: T?, filename: S
 }
 
 
-public func assertNotEmpty(_ string: String, filename: StaticString = #file, lineNumber: UInt = #line)
+public func assertNotEmpty(_ string: String?, filename: StaticString = #file, lineNumber: UInt = #line)
 {
-    if string.isEmpty
+    if string == nil || string!.isEmpty
     {
         failTest("String is empty", filename: filename, lineNumber: lineNumber)
     }
