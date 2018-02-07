@@ -11,8 +11,10 @@ import XCTest
 
 class AlchemyTest
 {
-    
+
 }
+
+private let _nil = "nil"
 
 public func failTest(_ message: String = "Assertion failed", functionName: String = #function, filename: StaticString = #file, lineNumber: UInt = #line)
 {
@@ -47,7 +49,7 @@ public func assertNotNil(_ variable: Any?, filename: StaticString = #file, lineN
 {
     if variable == nil
     {
-        failTest("Expected non-nil value", filename: filename, lineNumber: lineNumber)
+        failTest("Expected non-nil value but got [\(variable.asString)]]", filename: filename, lineNumber: lineNumber)
     }
 }
 
@@ -68,7 +70,7 @@ public func assertEquals<T: Equatable>(_ first: T?, _ second: T?, filename: Stat
     
     guard let _first = first, let _second = second else
     {
-        failTest("Not equal: [\(first)] & [\(second)]", filename: filename, lineNumber: lineNumber)
+        failTest("Not equal: [\(first.asString)] & [\(second.asString)]", filename: filename, lineNumber: lineNumber)
         return
     }
     
@@ -128,7 +130,7 @@ public func assertNotEquals<T: Equatable>(_ first: T?, _ second: T?, filename: S
     {
         if first == second
         {
-            failTest("Expected different values, but [\(first) & \(second)] are the same.", filename: filename, lineNumber: lineNumber)
+            failTest("Expected different values, but [\(first.asString) & \(second.asString)] are the same.", filename: filename, lineNumber: lineNumber)
         }
         
         return
@@ -145,7 +147,7 @@ public func assertNotEmpty(_ string: String?, filename: StaticString = #file, li
 {
     if string == nil || string!.isEmpty
     {
-        failTest("String is empty", filename: filename, lineNumber: lineNumber)
+        failTest("String is empty: [\(string.asString)]", filename: filename, lineNumber: lineNumber)
     }
 }
 
@@ -178,5 +180,17 @@ public func assertEmpty(_ array: [Any], filename: StaticString = #file, lineNumb
     if !array.isEmpty
     {
         failTest("Array is not empty. Has \(array.count) elements", filename: filename, lineNumber: lineNumber)
+    }
+}
+
+private extension Optional
+{
+    var asString: String
+    {
+        switch self
+        {
+            case let value: return String(describing: value)
+            case nil : return _nil
+        }
     }
 }
