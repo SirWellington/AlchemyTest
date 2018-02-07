@@ -123,6 +123,11 @@ public func assertEquals(_ first: Double, _ second: Double, withMarginOfError ma
     }
 }
 
+public func assertEquals(_ first: Date, _ second: Date, withMarginOfError marginOfError: TimeInterval, filename: StaticString = #file, lineNumber: UInt = #line)
+{
+    assertEquals(first.timeIntervalSince1970, second.timeIntervalSince1970, withMarginOfError: marginOfError, filename: filename, lineNumber: lineNumber)
+}
+
 public func assertNotEquals<T: Equatable>(_ first: T?, _ second: T?, filename: StaticString = #file, lineNumber: UInt = #line)
 {
     
@@ -189,8 +194,8 @@ private extension Optional
     {
         switch self
         {
-            case let value: return String(describing: value)
-            case nil : return _nil
+            case .some(let value) : return String(describing: value)
+            case .none : return _nil
         }
     }
 }

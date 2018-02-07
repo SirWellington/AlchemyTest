@@ -11,6 +11,8 @@ import XCTest
 
 class AlchemyTestTests: XCTestCase
 {
+
+    private var testIterations = 100
     
     override func setUp()
     {
@@ -28,6 +30,14 @@ class AlchemyTestTests: XCTestCase
         assertEquals(0.51, 0.65, withMarginOfError: 0.2)
         assertEquals(12.3, 12.35, withMarginOfError: 0.1)
         assertEquals(543.21, 541.01, withMarginOfError: 4.0)
+
+        (1...testIterations).forEach
+        { i in
+
+            let firstDate = Date()
+            let secondDate = firstDate.addingTimeInterval(1.0)
+            assertEquals(firstDate, secondDate, withMarginOfError: 2.0)
+        }
     }
     
 }
