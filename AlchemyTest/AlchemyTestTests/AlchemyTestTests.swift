@@ -12,7 +12,7 @@ import Foundation
 
 
 //======================================
-// MARK: 
+// MARK: TESTS 'BEFORE' METHODS
 //======================================
 
 class AlchemyTestBeforeTests: AlchemyTest
@@ -45,6 +45,9 @@ class AlchemyTestBeforeTests: AlchemyTest
 
 }
 
+//======================================
+// MARK: TESTS 'AFTER' METHODS
+//======================================
 class AlchemyTestAfterTests: AlchemyTest
 {
     private static var counter = 0
@@ -75,9 +78,12 @@ class AlchemyTestAfterTests: AlchemyTest
     }
 }
 
+//======================================
+// MARK: TESTS 'RUN TEST' ITERATIONS
+//======================================
 class AlchemyTestIterationsTest: AlchemyTest
 {
-    func testIterations()
+    func testRunTestIterations()
     {
         var counter = 0
         let iterations = 99

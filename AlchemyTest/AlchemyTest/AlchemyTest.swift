@@ -27,6 +27,8 @@ protocol AlchemyTestProtocol
 public class AlchemyTest: XCTestCase
 {
 
+    public typealias Block = () -> Void
+
     public override static func setUp()
     {
         super.setUp()
@@ -67,13 +69,11 @@ public class AlchemyTest: XCTestCase
     {
     }
 
-    public typealias Test = () -> Void
-
-    public func runTest(iterations: Int = 10, _ test: Test)
+    public func runTest(iterations: Int = 10, _ block: Block)
     {
         (0..<iterations).forEach
         { _ in
-            test()
+            block()
         }
     }
 
