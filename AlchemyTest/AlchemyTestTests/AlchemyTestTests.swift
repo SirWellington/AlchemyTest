@@ -1,33 +1,98 @@
 //
 //  AlchemyTestTests.swift
-//  AlchemyTestTests
+//  AlchemyTest
 //
-//  Created by Wellington Moreno on 11/5/17.
-//  Copyright © 2017 Wellington Moreno. All rights reserved.
+//  Created by Wellington Moreno on 03/02/2018.
+//  Copyright © 2018 Wellington Moreno. All rights reserved.
 //
 
-@testable import AlchemyTest
-import XCTest
+@testable
+import AlchemyTest
+import Foundation
 
-class AlchemyTestTests: XCTestCase
+
+//======================================
+// MARK: TESTS 'BEFORE' METHODS
+//======================================
+
+class AlchemyTestBeforeTests: AlchemyTest
 {
-    
-    override func setUp()
+    private static var counter = 0
+    private var counter = 0
+
+    override static func beforeTests()
     {
-        super.setUp()
+        super.beforeTests()
+
+        AlchemyTestBeforeTests.counter = -1
     }
-    
-    override func tearDown()
+
+    override func beforeEachTest()
     {
-        super.tearDown()
+        super.beforeEachTest()
+        counter = -1
     }
-   
-    func testAssertEqualsWithMarginOfError()
+
+    func testBeforeTests()
     {
-        assertEquals(0.5, 0.6, withMarginOfError: 0.15)
-        assertEquals(0.51, 0.65, withMarginOfError: 0.2)
-        assertEquals(12.3, 12.35, withMarginOfError: 0.1)
-        assertEquals(543.21, 541.01, withMarginOfError: 4.0)
+        assertEquals(AlchemyTestBeforeTests.counter, -1)
     }
-    
+
+    func testBeforeEachTest()
+    {
+        assertEquals(counter, -1)
+    }
+
+}
+
+//======================================
+// MARK: TESTS 'AFTER' METHODS
+//======================================
+class AlchemyTestAfterTests: AlchemyTest
+{
+    private static var counter = 0
+    private var counter = 0
+
+    override static func afterTests()
+    {
+        super.afterTests()
+        assertEquals(AlchemyTestAfterTests.counter, 1)
+    }
+
+    override func afterEachTest()
+    {
+        super.afterEachTest()
+        print("Counter at \(counter)")
+        assertEquals(counter, 1)
+    }
+
+    func testAfterTests()
+    {
+        AlchemyTestAfterTests.counter = 1
+        counter = 1
+    }
+
+    func testAfterEachTest()
+    {
+        counter = 1
+    }
+}
+
+//======================================
+// MARK: TESTS 'RUN TEST' ITERATIONS
+//======================================
+class AlchemyTestIterationsTest: AlchemyTest
+{
+    func testRunTestIterations()
+    {
+        var counter = 0
+        let iterations = 99
+
+        runTest(iterations: iterations)
+        {
+            counter += 1
+        }
+
+        assertEquals(counter, iterations)
+    }
 }
