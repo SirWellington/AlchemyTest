@@ -1,5 +1,5 @@
 //
-//  AlchemyTest.swift
+//  AlchemyTest+Assertions.swift
 //  AlchemyTest
 //
 //  Created by Wellington Moreno on 11/5/17.
@@ -8,11 +8,6 @@
 
 import Foundation
 import XCTest
-
-class AlchemyTest
-{
-
-}
 
 private let _nil = "nil"
 

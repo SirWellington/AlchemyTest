@@ -1,6 +1,6 @@
 //
-//  AlchemyTestTests.swift
-//  AlchemyTestTests
+//  AlchemyTestPlusAssertionsTest.swift
+//  AlchemyTest
 //
 //  Created by Wellington Moreno on 11/5/17.
 //  Copyright © 2017 Wellington Moreno. All rights reserved.
@@ -9,7 +9,7 @@
 @testable import AlchemyTest
 import XCTest
 
-class AlchemyTestTests: XCTestCase
+class AlchemyTestPlusAssertionsTest: XCTestCase
 {
 
     private var testIterations = 100
