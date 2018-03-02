@@ -1,5 +1,5 @@
 //
-//  AlchemyTestCase.swift
+//  AlchemyTest.swift
 //  AlchemyTest
 //
 //  Created by Wellington Moreno on 03/02/2018.
@@ -24,7 +24,7 @@ protocol AlchemyTestProtocol
     func afterEachTest()
 }
 
-public class AlchemyTestCase: XCTestCase
+public class AlchemyTest: XCTestCase
 {
 
     public typealias Block = () -> Void

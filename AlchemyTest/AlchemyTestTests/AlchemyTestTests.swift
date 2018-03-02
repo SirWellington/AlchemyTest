@@ -15,7 +15,7 @@ import Foundation
 // MARK: TESTS 'BEFORE' METHODS
 //======================================
 
-class AlchemyTestCaseBeforeTests: AlchemyTestCase
+class AlchemyTestBeforeTests: AlchemyTest
 {
     private static var counter = 0
     private var counter = 0
@@ -24,7 +24,7 @@ class AlchemyTestCaseBeforeTests: AlchemyTestCase
     {
         super.beforeTests()
 
-        AlchemyTestCaseBeforeTests.counter = -1
+        AlchemyTestBeforeTests.counter = -1
     }
 
     override func beforeEachTest()
@@ -35,7 +35,7 @@ class AlchemyTestCaseBeforeTests: AlchemyTestCase
 
     func testBeforeTests()
     {
-        assertEquals(AlchemyTestCaseBeforeTests.counter, -1)
+        assertEquals(AlchemyTestBeforeTests.counter, -1)
     }
 
     func testBeforeEachTest()
@@ -48,7 +48,7 @@ class AlchemyTestCaseBeforeTests: AlchemyTestCase
 //======================================
 // MARK: TESTS 'AFTER' METHODS
 //======================================
-class AlchemyTestCaseAfterTests: AlchemyTestCase
+class AlchemyTestAfterTests: AlchemyTest
 {
     private static var counter = 0
     private var counter = 0
@@ -56,7 +56,7 @@ class AlchemyTestCaseAfterTests: AlchemyTestCase
     override static func afterTests()
     {
         super.afterTests()
-        assertEquals(AlchemyTestCaseAfterTests.counter, 1)
+        assertEquals(AlchemyTestAfterTests.counter, 1)
     }
 
     override func afterEachTest()
@@ -68,7 +68,7 @@ class AlchemyTestCaseAfterTests: AlchemyTestCase
 
     func testAfterTests()
     {
-        AlchemyTestCaseAfterTests.counter = 1
+        AlchemyTestAfterTests.counter = 1
         counter = 1
     }
 
@@ -81,7 +81,7 @@ class AlchemyTestCaseAfterTests: AlchemyTestCase
 //======================================
 // MARK: TESTS 'RUN TEST' ITERATIONS
 //======================================
-class AlchemyTestCaseIterationsTest: AlchemyTestCase
+class AlchemyTestIterationsTest: AlchemyTest
 {
     func testRunTestIterations()
     {
