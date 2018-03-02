@@ -28,6 +28,7 @@ public class AlchemyTest: XCTestCase
 {
 
     public typealias Block = () -> Void
+    public var iterations = 100
 
     public override static func setUp()
     {
@@ -67,6 +68,11 @@ public class AlchemyTest: XCTestCase
 
     public func afterEachTest()
     {
+    }
+    
+    public func runTest(_ block: Block)
+    {
+        runTest(iterations: self.iterations, block)
     }
 
     public func runTest(iterations: Int = 10, _ block: Block)

@@ -102,8 +102,8 @@
 		DEF627A41FAFA055008DD22A /* AlchemyTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				DEF627A51FAFA055008DD22A /* AlchemyTestPlusAssertionsTest.swift */,
 				DEF627A71FAFA055008DD22A /* Info.plist */,
+				DEF627A51FAFA055008DD22A /* AlchemyTestPlusAssertionsTest.swift */,
 				853F2045185D91BD645CADBC /* AlchemyTestTests.swift */,
 			);
 			path = AlchemyTestTests;
