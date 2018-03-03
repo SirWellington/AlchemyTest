@@ -83,6 +83,26 @@ class AlchemyTestAfterTests: AlchemyTest
 //======================================
 class AlchemyTestIterationsTest: AlchemyTest
 {
+    private var instanceCounter = 0
+
+    override func beforeEachTest()
+    {
+        instanceCounter += 1
+    }
+    
+    func testRunTestIterationsCallsBeforeMethod()
+    {
+        instanceCounter = 0
+
+        let iterations = 99
+        runTest(iterations: iterations)
+        {
+            //
+        }
+
+        assertEquals(instanceCounter, iterations)
+    }
+
     func testRunTestIterations()
     {
         var counter = 0

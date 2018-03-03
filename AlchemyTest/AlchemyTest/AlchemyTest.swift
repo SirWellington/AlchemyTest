@@ -79,7 +79,9 @@ public class AlchemyTest: XCTestCase
     {
         (0..<iterations).forEach
         { _ in
+            beforeEachTest()
             block()
+            afterEachTest()
         }
     }
 
