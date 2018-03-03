@@ -24,49 +24,49 @@ protocol AlchemyTestProtocol
     func afterEachTest()
 }
 
-public class AlchemyTest: XCTestCase
+open class AlchemyTest: XCTestCase
 {
 
     public typealias Block = () -> Void
     public var iterations = 100
 
-    public override static func setUp()
+    open override static func setUp()
     {
         super.setUp()
         beforeTests()
     }
 
-    public override static func tearDown()
+    open override static func tearDown()
     {
         super.tearDown()
         afterTests()
     }
 
-    public override func setUp()
+    open override func setUp()
     {
         super.setUp()
         beforeEachTest()
     }
 
-    public override func tearDown()
+    open override func tearDown()
     {
         super.tearDown()
         afterEachTest()
     }
 
-    public class func beforeTests()
+    open class func beforeTests()
     {
     }
 
-    public class func afterTests()
+    open class func afterTests()
     {
     }
 
-    public func beforeEachTest()
+    open func beforeEachTest()
     {
     }
 
-    public func afterEachTest()
+    open func afterEachTest()
     {
     }
     
