@@ -75,7 +75,7 @@ open class AlchemyTest: XCTestCase
         runTest(iterations: self.iterations, block)
     }
 
-    public func runTest(iterations: Int = 10, _ block: Block)
+    public func runTest(iterations: Int, _ block: Block)
     {
         (0..<iterations).forEach
         { _ in
