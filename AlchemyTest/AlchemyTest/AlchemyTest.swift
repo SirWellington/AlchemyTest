@@ -28,7 +28,7 @@ open class AlchemyTest: XCTestCase
 {
 
     public typealias Block = () -> Void
-    public var iterations = 100
+    open var iterations = 100
 
     open override static func setUp()
     {
