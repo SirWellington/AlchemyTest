@@ -70,12 +70,12 @@ open class AlchemyTest: XCTestCase
     {
     }
     
-    public func runTest(_ block: Block)
+    public func repeatTest(_ block: Block)
     {
-        runTest(iterations: self.iterations, block)
+        repeatTest(iterations: self.iterations, block)
     }
 
-    public func runTest(iterations: Int, _ block: Block)
+    public func repeatTest(iterations: Int, _ block: Block)
     {
         (0..<iterations).forEach
         { _ in
@@ -84,6 +84,18 @@ open class AlchemyTest: XCTestCase
             afterEachTest()
         }
     }
-
+    
+    @available(*, deprecated, message: "Use `repeatTest` instead")
+    public func runTest(_ block: Block)
+    {
+        repeatTest(iterations: self.iterations, block)
+    }
+    
+    @available(*, deprecated, message: "Use `repeatTest` instead")
+    public func runTest(iterations: Int, _ block: Block)
+    {
+        repeatTest(iterations: iterations, block)
+    }
+    
 
 }
