@@ -26,9 +26,9 @@ protocol AlchemyTestProtocol
 
 open class AlchemyTest: XCTestCase
 {
-
+    open var iterations: Int { return 100 }
+    
     public typealias Block = () -> Void
-    open var iterations = 100
 
     open override static func setUp()
     {
