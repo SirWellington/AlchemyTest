@@ -26,6 +26,7 @@ protocol AlchemyTestProtocol
 
 open class AlchemyTest: XCTestCase
 {
+    /// The number of times a test is repeated whenever `repeatTest()` feature is used
     open var iterations: Int { return 100 }
     
     public typealias Block = () -> Void
@@ -70,6 +71,16 @@ open class AlchemyTest: XCTestCase
     {
     }
     
+    /**
+        Repeats a block of test code `iterations` times.
+        > Note that the test is reset on each iteration, like so:
+     
+        1. `beforeEachTest()`
+        2. `block()`
+        3. `afterEachTest()`
+     
+        - Parameter block: The test block to repeat and execute
+     */
     public func repeatTest(_ block: Block)
     {
         repeatTest(iterations: self.iterations, block)
