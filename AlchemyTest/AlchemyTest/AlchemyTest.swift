@@ -83,10 +83,10 @@ open class AlchemyTest: XCTestCase
      */
     public func repeatTest(_ block: Block)
     {
-        repeatTest(iterations: self.iterations, block)
+        repeatTest(iterations, block)
     }
 
-    public func repeatTest(iterations: Int, _ block: Block)
+    public func repeatTest(_ iterations: Int, _ block: Block)
     {
         (0..<iterations).forEach
         { _ in
@@ -99,13 +99,13 @@ open class AlchemyTest: XCTestCase
     @available(*, deprecated, message: "Use `repeatTest` instead")
     public func runTest(_ block: Block)
     {
-        repeatTest(iterations: self.iterations, block)
+        repeatTest(iterations, block)
     }
     
     @available(*, deprecated, message: "Use `repeatTest` instead")
     public func runTest(iterations: Int, _ block: Block)
     {
-        repeatTest(iterations: iterations, block)
+        repeatTest(iterations, block)
     }
     
 
