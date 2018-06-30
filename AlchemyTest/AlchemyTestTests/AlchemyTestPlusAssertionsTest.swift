@@ -13,17 +13,17 @@ class AlchemyTestPlusAssertionsTest: XCTestCase
 {
 
     private var testIterations = 100
-    
+
     override func setUp()
     {
         super.setUp()
     }
-    
+
     override func tearDown()
     {
         super.tearDown()
     }
-   
+
     func testDoubleAssertEqualsWithMarginOfError()
     {
         assertEquals(0.5, 0.6, withMarginOfError: 0.15)
@@ -51,5 +51,5 @@ class AlchemyTestPlusAssertionsTest: XCTestCase
         assertEquals(Decimal(543.21), Decimal(541.01), withMarginOfError: Decimal(4.0))
     }
 
-    
+
 }
