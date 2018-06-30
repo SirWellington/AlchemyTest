@@ -100,7 +100,8 @@ public func assertEquals<T: Equatable>(_ first: [T], _ second: [T], filename: St
     }
 }
 
-public func assertEquals(_ first: Double, _ second: Double, withMarginOfError marginOfError: Double, filename: StaticString = #file, lineNumber: UInt = #line)
+
+public func assertEquals(_ first: Decimal, _ second: Decimal, withMarginOfError marginOfError: Decimal, filename: StaticString = #file, lineNumber: UInt = #line)
 {
     let left = first - marginOfError
     let right = first + marginOfError
@@ -116,6 +117,16 @@ public func assertEquals(_ first: Double, _ second: Double, withMarginOfError ma
         failTest("\((first)) != \(second) within ε (\(marginOfError))", filename: filename, lineNumber: lineNumber)
         return
     }
+}
+
+public func assertEquals(_ first: Float, _ second: Float, withMarginOfError marginOfError: Float, filename: StaticString = #file, lineNumber: UInt = #line)
+{
+    assertEquals(Double(first), Double(second), withMarginOfError: Double(marginOfError), filename: filename, lineNumber: lineNumber)
+}
+
+public func assertEquals(_ first: Double, _ second: Double, withMarginOfError marginOfError: Double, filename: StaticString = #file, lineNumber: UInt = #line)
+{
+    assertEquals(Decimal(first), Decimal(second), withMarginOfError: Decimal(marginOfError), filename: filename, lineNumber: lineNumber)
 }
 
 public func assertEquals(_ first: Date, _ second: Date, withMarginOfError marginOfError: TimeInterval, filename: StaticString = #file, lineNumber: UInt = #line)

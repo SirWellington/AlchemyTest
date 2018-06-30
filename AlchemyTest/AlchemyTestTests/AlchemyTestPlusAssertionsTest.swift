@@ -24,13 +24,16 @@ class AlchemyTestPlusAssertionsTest: XCTestCase
         super.tearDown()
     }
    
-    func testAssertEqualsWithMarginOfError()
+    func testDoubleAssertEqualsWithMarginOfError()
     {
         assertEquals(0.5, 0.6, withMarginOfError: 0.15)
         assertEquals(0.51, 0.65, withMarginOfError: 0.2)
         assertEquals(12.3, 12.35, withMarginOfError: 0.1)
         assertEquals(543.21, 541.01, withMarginOfError: 4.0)
+    }
 
+    func testDateAssertEqualsWithMarginOfError()
+    {
         (1...testIterations).forEach
         { i in
 
@@ -39,5 +42,14 @@ class AlchemyTestPlusAssertionsTest: XCTestCase
             assertEquals(firstDate, secondDate, withMarginOfError: 2.0)
         }
     }
+
+    func testDecimalAssertEqualsWithMarginOfError()
+    {
+        assertEquals(Decimal(0.5), Decimal(0.6), withMarginOfError: Decimal(0.15))
+        assertEquals(Decimal(0.51), Decimal(0.65), withMarginOfError: Decimal(0.2))
+        assertEquals(Decimal(12.3), Decimal(12.35), withMarginOfError: Decimal(0.1))
+        assertEquals(Decimal(543.21), Decimal(541.01), withMarginOfError: Decimal(4.0))
+    }
+
     
 }
