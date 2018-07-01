@@ -43,6 +43,14 @@ class AlchemyTestPlusAssertionsTest: XCTestCase
         }
     }
 
+    func testCGFloatAssertEqualsWithMarginOfError()
+    {
+        assertEquals(CGFloat(0.5), CGFloat(0.6), withMarginOfError: CGFloat(0.15))
+        assertEquals(CGFloat(0.51), CGFloat(0.65), withMarginOfError: CGFloat(0.2))
+        assertEquals(CGFloat(12.3), CGFloat(12.35), withMarginOfError: CGFloat(0.1))
+        assertEquals(CGFloat(543.21), CGFloat(541.01), withMarginOfError: CGFloat(4.0))
+    }
+
     func testDecimalAssertEqualsWithMarginOfError()
     {
         assertEquals(Decimal(0.5), Decimal(0.6), withMarginOfError: Decimal(0.15))

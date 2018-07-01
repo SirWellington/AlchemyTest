@@ -129,6 +129,11 @@ public func assertEquals(_ first: Double, _ second: Double, withMarginOfError ma
     assertEquals(Decimal(first), Decimal(second), withMarginOfError: Decimal(marginOfError), filename: filename, lineNumber: lineNumber)
 }
 
+public func assertEquals(_ first: CGFloat, _ second: CGFloat, withMarginOfError marginOfError: CGFloat, filename: StaticString = #file, lineNumber: UInt = #line)
+{
+    assertEquals(Double(first), Double(second), withMarginOfError: Double(marginOfError), filename: filename, lineNumber: lineNumber)
+}
+
 public func assertEquals(_ first: Date, _ second: Date, withMarginOfError marginOfError: TimeInterval, filename: StaticString = #file, lineNumber: UInt = #line)
 {
     assertEquals(first.timeIntervalSince1970, second.timeIntervalSince1970, withMarginOfError: marginOfError, filename: filename, lineNumber: lineNumber)
