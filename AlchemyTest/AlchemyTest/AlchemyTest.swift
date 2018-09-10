@@ -28,6 +28,9 @@ open class AlchemyTest: XCTestCase
 {
     /// The number of times a test is repeated whenever `repeatTest()` feature is used
     open var iterations: Int { return 100 }
+
+    /// The default async timeout used if one isn't specified explicitly when using `asyncTest()`
+    open var defaultAsyncTimeout: TimeInterval { return 15.0 }
     
     public typealias Block = () -> Void
 
