@@ -111,6 +111,11 @@ open class AlchemyTest: XCTestCase
         repeatTest(iterations, block)
     }
 
+    public func asyncTest(_ callback: (XCTestExpectation) -> Void)
+    {
+        asyncTest(defaultAsyncTimeout, callback)
+    }
+
     public func asyncTest(_ timeout: TimeInterval = 15.0, _ callback: (XCTestExpectation) -> Void)
     {
         let promise = expectation(description: "operation")
