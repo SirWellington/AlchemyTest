@@ -4,10 +4,10 @@ xcode_project: AlchemyTest.xcodeproj # path to your xcodeproj folder
 xcode_scheme: AlchemyTest
 xcode_destination: platform=iOS Simulator,OS=11.4,name=iPhone 7
 
-
   # Only if app has Carthage dependencies
   # - carthage bootstrap --verbose
 
 script:
+  - echo "Carthage version is `carthage version`"
   - carthage build --no-skip-current
   - xcodebuild test -project AlchemyTest.xcodeproj -scheme AlchemyTest -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.4,name=iPhone 7' | xcpretty --test --color
