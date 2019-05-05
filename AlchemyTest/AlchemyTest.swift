@@ -34,13 +34,13 @@ open class AlchemyTest: XCTestCase
     
     public typealias Block = () -> Void
 
-    open override static func setUp()
+    public override static func setUp()
     {
         super.setUp()
         beforeTests()
     }
 
-    open override static func tearDown()
+    public override static func tearDown()
     {
         super.tearDown()
         afterTests()
