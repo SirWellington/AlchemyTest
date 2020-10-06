@@ -6,7 +6,8 @@
 //  Copyright © 2019 Wellington Moreno. All rights reserved.
 //
 
-@testable import AlchemyTest
+@testable
+import AlchemyTest
 import XCTest
 
 class AlchemyTestPlusAssertionsTest: XCTestCase

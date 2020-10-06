@@ -123,5 +123,4 @@ open class AlchemyTest: XCTestCase
         wait(for: [promise], timeout: timeout)
     }
 
-
 }
