@@ -13,86 +13,69 @@ import XCTest
 //======================================
 // MARK: ALCHEMY TEST
 //======================================
-protocol AlchemyTestProtocol
-{
+protocol AlchemyTestProtocol {
     static func beforeTests()
-
+    
     static func afterTests()
-
+    
     func beforeEachTest()
-
+    
     func afterEachTest()
 }
 
-open class AlchemyTest: XCTestCase
-{
+open class AlchemyTest: XCTestCase {
     /// The number of times a test is repeated whenever `repeatTest()` feature is used
     open var iterations: Int { return 100 }
-
+    
     /// The default async timeout used if one isn't specified explicitly when using `asyncTest()`
     open var defaultAsyncTimeout: TimeInterval { return 15.0 }
     
     public typealias Block = () -> Void
-
-    public override static func setUp()
-    {
+    
+    public override static func setUp() {
         super.setUp()
         beforeTests()
     }
-
-    public override static func tearDown()
-    {
+    
+    public override static func tearDown() {
         super.tearDown()
         afterTests()
     }
-
-    open override func setUp()
-    {
+    
+    open override func setUp() {
         super.setUp()
         beforeEachTest()
     }
-
-    open override func tearDown()
-    {
+    
+    open override func tearDown() {
         super.tearDown()
         afterEachTest()
     }
-
-    open class func beforeTests()
-    {
-    }
-
-    open class func afterTests()
-    {
-    }
-
-    open func beforeEachTest()
-    {
-    }
-
-    open func afterEachTest()
-    {
-    }
+    
+    open class func beforeTests() {}
+    
+    open class func afterTests() {}
+    
+    open func beforeEachTest() {}
+    
+    open func afterEachTest() {}
     
     /**
-        Repeats a block of test code `iterations` times.
-        > Note that the test is reset on each iteration, like so:
+     Repeats a block of test code `iterations` times.
+     > Note that the test is reset on each iteration, like so:
      
-        1. `beforeEachTest()`
-        2. `block()`
-        3. `afterEachTest()`
+     1. `beforeEachTest()`
+     2. `block()`
+     3. `afterEachTest()`
      
-        - Parameter block: The test block to repeat and execute
+     - Parameter block: The test block to repeat and execute
      */
-    public func repeatTest(_ block: Block)
-    {
+    public func repeatTest(_ block: Block) {
         repeatTest(iterations, block)
     }
-
-    public func repeatTest(_ iterations: Int, _ block: Block)
-    {
-        (0..<iterations).forEach
-        { _ in
+    
+    public func repeatTest(_ iterations: Int, _ block: Block) {
+        (0..<iterations).forEach { _ in
             beforeEachTest()
             block()
             afterEachTest()
@@ -100,27 +83,22 @@ open class AlchemyTest: XCTestCase
     }
     
     @available(*, deprecated, message: "Use `repeatTest` instead")
-    public func runTest(_ block: Block)
-    {
+    public func runTest(_ block: Block) {
         repeatTest(iterations, block)
     }
     
     @available(*, deprecated, message: "Use `repeatTest` instead")
-    public func runTest(iterations: Int, _ block: Block)
-    {
+    public func runTest(iterations: Int, _ block: Block) {
         repeatTest(iterations, block)
     }
-
-    public func asyncTest(_ callback: (XCTestExpectation) -> Void)
-    {
+    
+    public func asyncTest(_ callback: (XCTestExpectation) -> Void) {
         asyncTest(defaultAsyncTimeout, callback)
     }
-
-    public func asyncTest(_ timeout: TimeInterval, _ callback: (XCTestExpectation) -> Void)
-    {
+    
+    public func asyncTest(_ timeout: TimeInterval, _ callback: (XCTestExpectation) -> Void) {
         let promise = expectation(description: "operation")
         callback(promise)
         wait(for: [promise], timeout: timeout)
     }
-
 }
