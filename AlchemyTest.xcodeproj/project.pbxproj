@@ -88,9 +88,9 @@
 		13D185C52544B7D2006F3181 /* AlchemyTest */ = {
 			isa = PBXGroup;
 			children = (
-				13D185C62544B7D2006F3181 /* AlchemyTest+Assertions.swift */,
 				13D185C72544B7D2006F3181 /* AlchemyTest.h */,
 				13D185C82544B7D2006F3181 /* AlchemyTest.swift */,
+				13D185C62544B7D2006F3181 /* AlchemyTest+Assertions.swift */,
 			);
 			path = AlchemyTest;
 			sourceTree = "<group>";
@@ -468,6 +468,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,6 +487,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
