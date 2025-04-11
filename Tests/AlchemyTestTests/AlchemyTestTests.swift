@@ -36,7 +36,6 @@ class AlchemyTestBeforeTests: AlchemyTest {
     func testBeforeEachTest() {
         assertEquals(counter, -1)
     }
-
 }
 
 //======================================
