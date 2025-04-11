@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1308C5DA2DA96E1100283DAE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1308C5D92DA96E1100283DAE /* XCTest.framework */; platformFilter = ios; };
 		13D185CA2544B7D2006F3181 /* AlchemyTest+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D185C62544B7D2006F3181 /* AlchemyTest+Assertions.swift */; };
 		13D185CB2544B7D2006F3181 /* AlchemyTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 13D185C72544B7D2006F3181 /* AlchemyTest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13D185CC2544B7D2006F3181 /* AlchemyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D185C82544B7D2006F3181 /* AlchemyTest.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1308C5D92DA96E1100283DAE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		13D185C62544B7D2006F3181 /* AlchemyTest+Assertions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlchemyTest+Assertions.swift"; sourceTree = "<group>"; };
 		13D185C72544B7D2006F3181 /* AlchemyTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlchemyTest.h; sourceTree = "<group>"; };
 		13D185C82544B7D2006F3181 /* AlchemyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyTest.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1308C5DA2DA96E1100283DAE /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +137,7 @@
 		DEF627B31FAFA13D008DD22A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1308C5D92DA96E1100283DAE /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
