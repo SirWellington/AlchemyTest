@@ -10,7 +10,6 @@
 import AlchemyTest
 import Foundation
 
-
 //======================================
 // MARK: TESTS 'BEFORE' METHODS
 //======================================
@@ -42,7 +41,7 @@ class AlchemyTestBeforeTests: AlchemyTest {
 // MARK: TESTS 'AFTER' METHODS
 //======================================
 class AlchemyTestAfterTests: AlchemyTest {
-    
+
     private static var counter = 0
     private var counter = 0
 
@@ -76,7 +75,7 @@ class AlchemyTestIterationsTest: AlchemyTest {
     override func beforeEachTest() {
         instanceCounter += 1
     }
-    
+
     func testRepeatTestIterationsCallsBeforeMethod() {
         instanceCounter = 0
 

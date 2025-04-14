@@ -21,7 +21,7 @@ class AlchemyTestPlusAssertionsTest: XCTestCase {
     }
 
     func testDateAssertEqualsWithMarginOfError() {
-        (1...testIterations).forEach { i in
+        for i in 1 ... testIterations {
 
             let firstDate = Date()
             let secondDate = firstDate.addingTimeInterval(1.0)
@@ -42,5 +42,4 @@ class AlchemyTestPlusAssertionsTest: XCTestCase {
         assertEquals(Decimal(12.3), Decimal(12.35), marginOfError: Decimal(0.1))
         assertEquals(Decimal(543.21), Decimal(541.01), marginOfError: Decimal(4.0))
     }
-
 }

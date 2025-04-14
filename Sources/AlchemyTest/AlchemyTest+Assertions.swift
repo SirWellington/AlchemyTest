@@ -87,10 +87,10 @@ public func assertEquals<T: Equatable>(
     filename: StaticString = #file,
     lineNumber: UInt = #line
 ) {
-    if first == nil && second == nil {
+    if first == nil, second == nil {
         return
     }
-    
+
     guard let first, let second else {
         failTest(
             "Not equal: [\(first.asString)] & [\(second.asString)]",
@@ -99,7 +99,7 @@ public func assertEquals<T: Equatable>(
         )
         return
     }
-    
+
     if first != second {
         failTest(
             "Not equal: [\(first)] & [\(second)]",
@@ -115,10 +115,10 @@ public func assertEquals<T: Equatable>(
     filename: StaticString = #file,
     lineNumber: UInt = #line
 ) {
-    if first.isEmpty && second.isEmpty {
+    if first.isEmpty, second.isEmpty {
         return
     }
-    
+
     guard first.count == second.count else {
         failTest(
             "Arrays have different lengths",
@@ -127,10 +127,10 @@ public func assertEquals<T: Equatable>(
         )
         return
     }
-    
+
     for (index, firstValue) in first.enumerated() {
         let secondValue = second[index]
-        
+
         guard secondValue == firstValue else {
             failTest(
                 "Arrays are different [@\(index)] | \(secondValue) != \(firstValue)",
@@ -142,7 +142,6 @@ public func assertEquals<T: Equatable>(
     }
 }
 
-
 public func assertEquals(
     _ first: Decimal,
     _ second: Decimal,
@@ -152,7 +151,7 @@ public func assertEquals(
 ) {
     let left = first - marginOfError
     let right = first + marginOfError
-    
+
     guard left <= second else {
         failTest(
             "\(first) != \(second) within ε (\(marginOfError))",
@@ -161,10 +160,10 @@ public func assertEquals(
         )
         return
     }
-    
+
     guard second <= right else {
         failTest(
-            "\((first)) != \(second) within ε (\(marginOfError))",
+            "\(first) != \(second) within ε (\(marginOfError))",
             filename: filename,
             lineNumber: lineNumber
         )
@@ -235,13 +234,14 @@ public func assertEquals(
         lineNumber: lineNumber
     )
 }
+
 public func assertNotEquals<T: Equatable>(
     _ first: T?,
     _ second: T?,
     filename: StaticString = #file,
     lineNumber: UInt = #line
 ) {
-    
+
     guard let first, let second else {
         if first == second {
             failTest(
@@ -250,10 +250,10 @@ public func assertNotEquals<T: Equatable>(
                 lineNumber: lineNumber
             )
         }
-        
+
         return
     }
-    
+
     if first == second {
         failTest(
             "Expected different values, but [\(first) & \(second)]",
@@ -262,7 +262,6 @@ public func assertNotEquals<T: Equatable>(
         )
     }
 }
-
 
 public func assertNotEmpty(
     _ string: String?,
@@ -337,8 +336,8 @@ public func assertEmpty(
 private extension Optional {
     var asString: String {
         switch self {
-            case .some(let value) : return String(describing: value)
-            case .none : return _nil
+        case let .some(value): return String(describing: value)
+        case .none: return _nil
         }
     }
 }
